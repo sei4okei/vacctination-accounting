@@ -35,6 +35,7 @@ namespace courseproject.Pages
             if (ValidData(Login, Password))
             {
                 NavigationManager.MainFrame.Navigate(new View());
+                NavigationManager.SideMenuFrame.Navigate(new SideMenu());
             }
             else
             {

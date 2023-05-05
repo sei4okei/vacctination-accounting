@@ -1,4 +1,5 @@
-﻿using System;
+﻿using courseproject.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +8,10 @@ using System.Windows.Controls;
 
 namespace courseproject.Data
 {
-    internal class NavigationManager
+    static class NavigationManager
     {
-        public static Frame MainFrame {get; set;}
+        public static Frame MainFrame { get; set; }
+
+        public static Frame SideMenuFrame { get; set; }
     }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-G:\Desktop\courseproject\obj\Debug\
+G:\Desktop\vacctination-accounting\obj\Debug\
 courseproject
 none
 false
 DEBUG;TRACE
-G:\Desktop\courseproject\App.xaml
-31952149269
+G:\Desktop\vacctination-accounting\App.xaml
+5578563810
 
-16536259985
-45-261057962
-MainWindow.xaml;Pages\Login.xaml;Pages\View.xaml;
+18-288533540
+452044096306
+MainWindow.xaml;Pages\Add.xaml;Pages\Login.xaml;Pages\SideMenu.xaml;Pages\View.xaml;
 
 False
 

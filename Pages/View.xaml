@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:courseproject.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="525" d:DesignWidth="1024"
+      d:DesignHeight="995" d:DesignWidth="1620"
       Title="View" Loaded="Page_Loaded">
 
     <Grid>
-        <DataGrid x:Name="ViewDataGrid" Background="#FFC175" BorderBrush="#96CFF1" Margin="400, 91, 100, 86"
+        <DataGrid x:Name="ViewDataGrid" Background="#FFC175" BorderBrush="#96CFF1" Margin="100, 91, 100, 86"
                   CanUserAddRows="False" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#96CFF1"
                   IsReadOnly="True">
             <DataGrid.CellStyle>

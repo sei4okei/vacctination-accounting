@@ -1,5 +1,4 @@
 ﻿using courseproject.Data;
-using courseproject.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,29 +14,37 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace courseproject
+namespace courseproject.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SideMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SideMenu : Page
     {
-        public MainWindow()
+        public SideMenu()
         {
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void ViewButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationManager.MainFrame = mainFrame;
-            NavigationManager.MainFrame.Navigate(new Login());
-
-            NavigationManager.SideMenuFrame = SideMenuFrame;
+            NavigationManager.MainFrame.Navigate(new View());
         }
 
-        private void DragRectangle_MouseDown(object sender, MouseButtonEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DragMove();
+            NavigationManager.MainFrame.Navigate(new Add());
+
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DocumentButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
