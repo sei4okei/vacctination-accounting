@@ -9,6 +9,16 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
 
+        <Style x:Key="GeneralDatePicker" TargetType="DatePicker">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="GeneralComboBox" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
         <Style x:Key="GeneralPassword" TargetType="PasswordBox">
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>

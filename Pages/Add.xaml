@@ -6,12 +6,28 @@
       xmlns:local="clr-namespace:courseproject.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="995" d:DesignWidth="1620"
-      Title="Add">
+      Title="Add" Loaded="Page_Loaded">
 
     <Grid>
         <TabControl>
             <TabItem Header="Пациент">
-                <Label Content="WORKS!" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
+                <StackPanel Orientation="Vertical" Margin="20">
+                    <Label Content="Имя:" Style="{StaticResource GeneralLabel}"/>
+                    <TextBox x:Name="FirstNameTextBox" Style="{StaticResource GeneralTextBox}" Height="45" Width="280" HorizontalAlignment="Left"/>
+                    <Label Content="Фамилия:" Style="{StaticResource GeneralLabel}"/>
+                    <TextBox x:Name="LastNameTextBox" Style="{StaticResource GeneralTextBox}" Height="45" Width="280" HorizontalAlignment="Left"/>
+                    <Label Content="Отчество:" Style="{StaticResource GeneralLabel}"/>
+                    <TextBox x:Name="MiddleNameTextBox" Style="{StaticResource GeneralTextBox}" Height="45" Width="280" HorizontalAlignment="Left"/>
+                    <Label Content="Дата рождения:" Style="{StaticResource GeneralLabel}"/>
+                    <DatePicker x:Name="DatePicker" Style="{StaticResource GeneralDatePicker}" Height="45" Width="280" HorizontalAlignment="Left"/>
+                    <Label Content="Город регистрации:" Style="{StaticResource GeneralLabel}"/>
+                    <TextBox x:Name="CityTextBox" Style="{StaticResource GeneralTextBox}" Height="45" Width="280" HorizontalAlignment="Left"/>
+                    <Label Content="Номер участка:" Style="{StaticResource GeneralLabel}"/>
+                    <ComboBox x:Name="RegionComboBox" Style="{StaticResource GeneralComboBox}" Height="45" Width="280" HorizontalAlignment="Left"/>
+                    <Label Content="Номер полиса:" Style="{StaticResource GeneralLabel}"/>
+                    <TextBox x:Name="InsurancePolicyTextBox" Style="{StaticResource GeneralTextBox}" Height="45" Width="280" HorizontalAlignment="Left"/>
+                    <Button Content="Сохранить" Height="50" Width="175" HorizontalAlignment="Left" Style="{StaticResource LoginButton}" Click="SaveButton_Click" Margin="0, 65"/>
+                </StackPanel>
             </TabItem>
             <TabItem Header="Врач">
                 <Label Content="WORKS!!" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50"/>
