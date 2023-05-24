@@ -8,10 +8,14 @@
       d:DesignHeight="995" d:DesignWidth="1620"
       Title="" ShowsNavigationUI="False">
     <Grid>
-        <Label x:Name="TestLabel" Style="{StaticResource GeneralLabel}" Content="Введите логин:" Margin="670,0,0,525" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="LoginTextBox" Height="45" Width="280" Style="{StaticResource GeneralTextBox}" HorizontalAlignment="Center" Margin="0,0,0,475" VerticalAlignment="Bottom"/>
-        <PasswordBox x:Name="PasswordBox" Height="45" Width="280" Style="{StaticResource GeneralPassword}" Margin="0,0,0,383" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <Label Style="{StaticResource GeneralLabel}" Content="Введите пароль:" Margin="670,0,785,433" VerticalAlignment="Bottom"/>
-        <Button x:Name="LoginButton" Style="{StaticResource LoginButton}" Click="LoginButton_Click" Height="50" Width="176" Content="Войти" Margin="0,648,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0, 300 ,0">
+            <Label Style="{StaticResource GeneralLabel}" Content="Введите логин:"/>
+            <TextBox x:Name="LoginTextBox" Height="45" Width="280" Style="{StaticResource GeneralTextBox}"/>
+            <Label Style="{StaticResource GeneralLabel}" Content="Введите пароль:"/>
+            <PasswordBox x:Name="PasswordBox" Height="45" Width="280" Style="{StaticResource GeneralPassword}"/>
+            <Button x:Name="LoginButton" Style="{StaticResource LoginButton}"
+                    Click="LoginButton_Click" Height="50" Width="176" Content="Войти" Margin="0, 50"/>
+
+        </StackPanel>
     </Grid>
 </Page>

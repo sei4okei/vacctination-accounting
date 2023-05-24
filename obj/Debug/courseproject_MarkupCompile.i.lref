@@ -1,8 +1,6 @@
 ﻿
-FD:\Development\Desktop\vaccination-accounting\vacctination-accounting\App.xaml;;
-FD:\Development\Desktop\vaccination-accounting\vacctination-accounting\MainWindow.xaml;;
-FD:\Development\Desktop\vaccination-accounting\vacctination-accounting\Pages\Add.xaml;;
-FD:\Development\Desktop\vaccination-accounting\vacctination-accounting\Pages\Login.xaml;;
-FD:\Development\Desktop\vaccination-accounting\vacctination-accounting\Pages\SideMenu.xaml;;
-FD:\Development\Desktop\vaccination-accounting\vacctination-accounting\Pages\View.xaml;;
+
+FG:\Desktop\vacctination-accounting\Pages\Add.xaml;;
+FG:\Desktop\vacctination-accounting\Pages\AddTabs\Employee.xaml;;
+FG:\Desktop\vacctination-accounting\Pages\AddTabs\Patient.xaml;;
 

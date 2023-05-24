@@ -13,5 +13,7 @@ namespace courseproject.Data
         public static Frame MainFrame { get; set; }
 
         public static Frame SideMenuFrame { get; set; }
+
+        public static Frame AddTabsFrame { get; set; }
     }
 }

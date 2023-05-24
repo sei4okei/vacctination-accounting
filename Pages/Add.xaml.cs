@@ -27,62 +27,35 @@ namespace courseproject.Pages
             InitializeComponent();
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+
+        private void PatientFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            VacctinationAccountingDb db = new VacctinationAccountingDb();
-
-            try
-            {
-                if (FirstNameTextBox.Text != null && LastNameTextBox.Text != null && MiddleNameTextBox.Text != null
-                    && CityTextBox.Text != null && RegionComboBox.SelectedItem != null
-                    && InsurancePolicyTextBox.Text.Length == 9 && DatePicker.SelectedDate != null)
-                {
-                    db.Patient.Add(new Data.Models.Patient
-                    {
-                        FirstName = FirstNameTextBox.Text,
-                        LastName = LastNameTextBox.Text,
-                        MiddleName = MiddleNameTextBox.Text,
-                        DateBirth = DatePicker.SelectedDate.Value,
-                        Registration = CityTextBox.Text,
-                        RegionId = Convert.ToInt32(RegionComboBox.SelectedValue),
-                        InsurancePolicy = InsurancePolicyTextBox.Text
-                    });
-
-                    db.SaveChanges();
-
-                    ClearInput();
-
-                    MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            PatientFrame.Navigate(new AddTabs.Patient());
         }
 
-        private void ClearInput()
+        private void EmployeeFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            FirstNameTextBox.Clear();
-            LastNameTextBox.Clear();
-            MiddleNameTextBox.Clear();
-            DatePicker.SelectedDate = null;
-            CityTextBox.Clear();
-            RegionComboBox.SelectedValue = null;
-            InsurancePolicyTextBox.Clear();
+            EmployeeFrame.Navigate(new AddTabs.Employee());
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void AccountFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            VacctinationAccountingDb db = new VacctinationAccountingDb();
+            AccountFrame.Navigate(new AddTabs.Patient());
+        }
 
-            var list = db.Region.Select(x => x.Id).ToList();
+        private void VaccineFrame_Loaded(object sender, RoutedEventArgs e)
+        {
+            VaccineFrame.Navigate(new AddTabs.Patient());
+        }
 
-            RegionComboBox.ItemsSource = list;
+        private void RegionFrame_Loaded(object sender, RoutedEventArgs e)
+        {
+            RegionFrame.Navigate(new AddTabs.Patient());
+        }
+
+        private void ReceiptionFrame_Loaded(object sender, RoutedEventArgs e)
+        {
+            ReceiptionFrame.Navigate(new AddTabs.Patient());
         }
     }
 }

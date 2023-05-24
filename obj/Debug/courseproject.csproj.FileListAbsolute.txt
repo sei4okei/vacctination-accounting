@@ -241,3 +241,7 @@ D:\Development\Desktop\vaccination-accounting\vacctination-accounting\obj\Debug\
 D:\Development\Desktop\vaccination-accounting\vacctination-accounting\obj\Debug\courseproject.csproj.CopyComplete
 D:\Development\Desktop\vaccination-accounting\vacctination-accounting\obj\Debug\courseproject.exe
 D:\Development\Desktop\vaccination-accounting\vacctination-accounting\obj\Debug\courseproject.pdb
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Patient.g.cs
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Patient.baml
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Employee.g.cs
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Employee.baml
