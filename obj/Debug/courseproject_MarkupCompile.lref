@@ -7,4 +7,8 @@ FG:\Desktop\vacctination-accounting\Pages\SideMenu.xaml;;
 FG:\Desktop\vacctination-accounting\Pages\View.xaml;;
 FG:\Desktop\vacctination-accounting\Pages\AddTabs\Patient.xaml;;
 FG:\Desktop\vacctination-accounting\Pages\AddTabs\Employee.xaml;;
+FG:\Desktop\vacctination-accounting\Pages\AddTabs\Account.xaml;;
+FG:\Desktop\vacctination-accounting\Pages\AddTabs\Drug.xaml;;
+FG:\Desktop\vacctination-accounting\Pages\AddTabs\Region.xaml;;
+FG:\Desktop\vacctination-accounting\Pages\AddTabs\PatientReception.xaml;;
 

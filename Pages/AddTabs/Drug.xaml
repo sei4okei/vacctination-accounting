@@ -1,0 +1,22 @@
+﻿<Page x:Class="courseproject.Pages.AddTabs.Drug"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:courseproject.Pages.AddTabs"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1900"
+      Title="Employee" Loaded="Page_Loaded">
+
+    <StackPanel Orientation="Vertical" Margin="20">
+        <Label Content="Название:" Style="{StaticResource GeneralLabel}"/>
+        <TextBox x:Name="NameTextBox" Style="{StaticResource GeneralTextBox}" Height="45" Width="280" HorizontalAlignment="Left"/>
+        <Label Content="Дозировка (мг):" Style="{StaticResource GeneralLabel}"/>
+        <TextBox x:Name="DosageTextBox" Style="{StaticResource GeneralTextBox}" Height="45" Width="280" HorizontalAlignment="Left"/>
+        <Label Content="Противопоказания:" Style="{StaticResource GeneralLabel}"/>
+        <TextBox x:Name="ContraindicatorsTextBox" Style="{StaticResource GeneralTextBox}" Height="90" Width="280" HorizontalAlignment="Left"/>
+        <Label Content="Срок годности:" Style="{StaticResource GeneralLabel}"/>
+        <DatePicker x:Name="ExpirationDatePicker" Style="{StaticResource GeneralDatePicker}" Height="45" Width="280" HorizontalAlignment="Left"/>
+        <Button Content="Сохранить" Height="50" Width="175" HorizontalAlignment="Left" Style="{StaticResource LoginButton}" Click="SaveButton_Click" Margin="0, 65"/>
+    </StackPanel>
+</Page>

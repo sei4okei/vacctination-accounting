@@ -167,11 +167,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddTabs\Account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddTabs\Drug.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddTabs\Employee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddTabs\Patient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddTabs\PatientReception.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddTabs\Region.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,11 +208,23 @@
     <Compile Include="Pages\Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddTabs\Account.xaml.cs">
+      <DependentUpon>Account.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddTabs\Drug.xaml.cs">
+      <DependentUpon>Drug.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddTabs\Employee.xaml.cs">
       <DependentUpon>Employee.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddTabs\Patient.xaml.cs">
       <DependentUpon>Patient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddTabs\PatientReception.xaml.cs">
+      <DependentUpon>PatientReception.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddTabs\Region.xaml.cs">
+      <DependentUpon>Region.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

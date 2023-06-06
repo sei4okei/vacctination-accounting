@@ -40,22 +40,22 @@ namespace courseproject.Pages
 
         private void AccountFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            AccountFrame.Navigate(new AddTabs.Patient());
+            AccountFrame.Navigate(new AddTabs.Account());
         }
 
         private void VaccineFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            VaccineFrame.Navigate(new AddTabs.Patient());
+            VaccineFrame.Navigate(new AddTabs.Drug());
         }
 
         private void RegionFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            RegionFrame.Navigate(new AddTabs.Patient());
+            RegionFrame.Navigate(new AddTabs.Region());
         }
 
         private void ReceiptionFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            ReceiptionFrame.Navigate(new AddTabs.Patient());
+            ReceiptionFrame.Navigate(new AddTabs.PatientReception());
         }
     }
 }

@@ -245,3 +245,11 @@ G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Patient.g.cs
 G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Patient.baml
 G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Employee.g.cs
 G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Employee.baml
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Account.g.cs
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Account.baml
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Drug.g.cs
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Drug.baml
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Region.g.cs
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\Region.baml
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\PatientReception.g.cs
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\AddTabs\PatientReception.baml
