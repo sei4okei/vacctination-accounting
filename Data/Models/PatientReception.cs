@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace courseproject.Data.Models
 {
-    internal class PatientReception
+    public class PatientReception
     {
         public int Id { get; set; }
 

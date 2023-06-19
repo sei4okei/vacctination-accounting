@@ -1,4 +1,5 @@
 ﻿using courseproject.Data;
+using courseproject.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,15 +23,29 @@ namespace courseproject.Pages
     /// </summary>
     public partial class Add : Page
     {
-        public Add()
+        private Data.Models.View reception;
+
+        public Add(Data.Models.View _reception)
         {
             InitializeComponent();
+
+            reception = _reception;
         }
 
 
         private void PatientFrame_Loaded(object sender, RoutedEventArgs e)
         {
-            PatientFrame.Navigate(new AddTabs.Patient());
+            if (reception == null)
+            {
+                PatientFrame.Navigate(new AddTabs.Patient(null));
+            }
+            else
+            {
+                using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+                {
+                    PatientFrame.Navigate(new AddTabs.Patient(db.Patient.Where(patient => (patient.LastName + " " + patient.FirstName + " " + patient.MiddleName) == reception.AllName).ToList()[0]));
+                }
+            }
         }
 
         private void EmployeeFrame_Loaded(object sender, RoutedEventArgs e)

@@ -11,7 +11,7 @@
     <Grid>
         <DataGrid x:Name="ViewDataGrid" Background="#FFC175" BorderBrush="#96CFF1" Margin="100, 91, 100, 86"
                   CanUserAddRows="False" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#96CFF1"
-                  IsReadOnly="True">
+                  IsReadOnly="True" SelectedCellsChanged="ViewDataGrid_SelectedCellsChanged">
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <Setter Property="FontSize" Value="20"/>

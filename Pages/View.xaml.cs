@@ -1,8 +1,12 @@
 ﻿using courseproject.Data;
 using courseproject.Data.Models;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -50,6 +54,15 @@ namespace courseproject.Pages
             ViewDataGrid.Columns[4].Width = 135;
             ViewDataGrid.Columns[5].Header = "ФИО врача";
             ViewDataGrid.Columns[5].Width = 200;
+        }
+
+        private void ViewDataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            DataGrid DG = sender as DataGrid;
+            Data.Models.View row = (Data.Models.View)(sender as DataGrid).SelectedItems[0];
+
+            NavigationManager.MainFrame.Navigate(new Add(row));
+
         }
     }
 }

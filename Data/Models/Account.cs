@@ -8,7 +8,7 @@ using System.Windows.Markup;
 
 namespace courseproject.Data.Models
 {
-    internal class Account
+    public class Account
     {
         public int Id { get; set; }
         public string Login { get; set; }

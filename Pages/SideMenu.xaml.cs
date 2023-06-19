@@ -33,7 +33,7 @@ namespace courseproject.Pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationManager.MainFrame.Navigate(new Add());
+            NavigationManager.MainFrame.Navigate(new Add(null));
 
         }
 

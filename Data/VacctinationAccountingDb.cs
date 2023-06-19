@@ -24,7 +24,7 @@ namespace courseproject.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("Server=localhost;User Id=root;Password=;Database=VaccinationAccounting;");
+            optionsBuilder.UseMySql("Server=localhost;User Id=root;Password=0000;Database=VaccinationAccounting;");
         }
     }
 }

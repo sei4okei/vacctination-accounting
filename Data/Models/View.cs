@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace courseproject.Data.Models
 {
-    internal class View
+    public class View
     {
         public int Id { get; set; }
         public string AllName { get; set; }

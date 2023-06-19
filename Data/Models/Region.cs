@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace courseproject.Data.Models
 {
-    internal class Region
+    public class Region
     {
         public int Id { get; set; }
         public int EmployeeId { get; set; }

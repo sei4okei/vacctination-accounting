@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace courseproject.Data.Models
 {
-    internal class Patient
+    public class Patient
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

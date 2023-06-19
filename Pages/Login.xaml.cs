@@ -32,7 +32,7 @@ namespace courseproject.Pages
             string Login = LoginTextBox.Text;
             string Password = PasswordBox.Password;
 
-            if (ValidData(Login, Password))
+            if (isInputValid(Login, Password))
             {
                 NavigationManager.MainFrame.Navigate(new View());
                 NavigationManager.SideMenuFrame.Navigate(new SideMenu());
@@ -43,13 +43,15 @@ namespace courseproject.Pages
             }
         }
 
-        private bool ValidData(string Login, string Password)
+        private bool isInputValid(string Login, string Password)
         {
             using (VacctinationAccountingDb db = new VacctinationAccountingDb())
             {
                 try
                 {
-                    if (db.Account.First(o => o.Login == Login) == null && db.Account.First(o => o.Password == Password) == null)
+                    List<Account> account = db.Account.Where(o => o.Login == Login).ToList();
+
+                    if (account[0].Password != Password)
                     {
                         return false;
                     }
