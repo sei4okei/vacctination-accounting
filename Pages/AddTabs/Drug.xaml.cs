@@ -1,4 +1,5 @@
 ﻿using courseproject.Data;
+using courseproject.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,13 @@ namespace courseproject.Pages.AddTabs
     /// </summary>
     public partial class Drug : Page
     {
-        public Drug()
+        Data.Models.Drug drug;
+
+        public Drug(Data.Models.Drug _drug)
         {
             InitializeComponent();
+
+            drug = _drug;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -32,26 +37,32 @@ namespace courseproject.Pages.AddTabs
 
             try
             {
-                if (NameTextBox.Text != null && DosageTextBox.Text != null && ContraindicatorsTextBox.Text != null
-                    &&  ExpirationDatePicker.SelectedDate != null)
+                if (NameTextBox.Text == null && DosageTextBox.Text == null && ContraindicatorsTextBox.Text == null
+                    && ExpirationDatePicker.SelectedDate == null)
                 {
-                    db.Drug.Add(new Data.Models.Drug
-                    {
-                        Name = NameTextBox.Text,
-                        Dosage = Convert.ToInt32(DosageTextBox.Text),
-                        Contraindicators = ContraindicatorsTextBox.Text,
-                        ExpirationDate = ExpirationDatePicker.SelectedDate.Value,
-                    });
+                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                if (drug != null)
+                {
+                    drug = GetUserInput(drug);
+
+                    db.Drug.Update(drug);
+
+                    db.SaveChanges();
+
+                    ClearInput();
+
+                    MessageBox.Show("Данные обновлены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    db.Drug.Add(GetUserInput(new Data.Models.Drug()));
 
                     db.SaveChanges();
 
                     ClearInput();
 
                     MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception)
@@ -70,7 +81,25 @@ namespace courseproject.Pages.AddTabs
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            if (drug != null) FillFields(drug);
+        }
 
+        private Data.Models.Drug GetUserInput(Data.Models.Drug d)
+        {
+            d.Name = NameTextBox.Text;
+            d.Dosage = int.Parse(DosageTextBox.Text);
+            d.Contraindicators = ContraindicatorsTextBox.Text;
+            d.ExpirationDate = ExpirationDatePicker.SelectedDate.Value;
+
+            return d;
+        }
+
+        private void FillFields(Data.Models.Drug d)
+        {
+            NameTextBox.Text = d.Name;
+            DosageTextBox.Text = d.Dosage.ToString();
+            ContraindicatorsTextBox.Text = d.Contraindicators;
+            ExpirationDatePicker.SelectedDate = d.ExpirationDate;
         }
     }
 }

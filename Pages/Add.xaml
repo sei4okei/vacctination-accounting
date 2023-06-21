@@ -16,9 +16,6 @@
             <TabItem Header="Врач">
                 <Frame x:Name="EmployeeFrame" Loaded="EmployeeFrame_Loaded"/>
             </TabItem>
-            <TabItem Header="Аккаунт">
-                <Frame x:Name="AccountFrame" Loaded="AccountFrame_Loaded"/>
-            </TabItem>
             <TabItem Header="Вакцина">
                 <Frame x:Name="VaccineFrame" Loaded="VaccineFrame_Loaded"/>
             </TabItem>
@@ -27,6 +24,9 @@
             </TabItem>
             <TabItem Header="Направление">
                 <Frame x:Name="ReceiptionFrame" Loaded="ReceiptionFrame_Loaded"/>
+            </TabItem>
+            <TabItem Header="Аккаунт" x:Name="AccountTab">
+                <Frame x:Name="AccountFrame" Loaded="AccountFrame_Loaded"/>
             </TabItem>
         </TabControl>
     </Grid>

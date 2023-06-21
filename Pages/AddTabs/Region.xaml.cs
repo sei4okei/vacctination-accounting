@@ -1,5 +1,6 @@
 ﻿using courseproject.Data;
 using courseproject.Data.Models;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,13 @@ namespace courseproject.Pages.AddTabs
     /// </summary>
     public partial class Region : Page
     {
-        public Region()
+        Data.Models.Region region;
+
+        public Region(Data.Models.Region _region)
         {
             InitializeComponent();
+
+            region = _region;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -33,22 +38,31 @@ namespace courseproject.Pages.AddTabs
 
             try
             {
-                if (EmployeeComboBox.SelectedItem != null)
+                if (EmployeeComboBox.SelectedItem == null)
                 {
-                    db.Region.Add(new Data.Models.Region
-                    {
-                        EmployeeId = db.Employee.First(x => x.SecondName + " " + x.FirstName + " " + x.MiddleName == EmployeeComboBox.SelectedItem.ToString()).Id,
-                    });
+                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                if (region != null)
+                {
+                    region = GetUserInput(region);
+
+                    db.Region.Update(region);
+
+                    db.SaveChanges();
+
+                    ClearInput();
+
+                    MessageBox.Show("Данные обновлены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    db.Region.Add(GetUserInput(new Data.Models.Region()));
 
                     db.SaveChanges();
 
                     ClearInput();
 
                     MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception)
@@ -71,6 +85,30 @@ namespace courseproject.Pages.AddTabs
             {
                 List<string> list = db.Employee.Select(x => x.SecondName + " " + x.FirstName + " " + x.MiddleName).ToList();
                 EmployeeComboBox.ItemsSource = list;
+            }
+
+            if (region != null) FillFields(region);
+        }
+
+        private Data.Models.Region GetUserInput(Data.Models.Region r)
+        {
+            using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+            {
+                r.EmployeeId = db.Employee.Single(x => x.SecondName + " " + x.FirstName + " " + x.MiddleName == EmployeeComboBox.SelectedItem.ToString()).Id;
+            }
+
+            return r;
+        }
+
+        private void FillFields(Data.Models.Region region)
+        {
+            RegionTextBox.Text = region.Id.ToString();
+
+            using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+            {
+                var employee = db.Employee.Single(e => e.Id == region.EmployeeId);
+
+                EmployeeComboBox.SelectedItem = employee.SecondName + " " + employee.FirstName + " " + employee.MiddleName;
             }
         }
 

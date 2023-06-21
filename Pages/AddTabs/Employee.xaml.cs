@@ -1,4 +1,5 @@
 ﻿using courseproject.Data;
+using courseproject.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,13 @@ namespace courseproject.Pages.AddTabs
     /// </summary>
     public partial class Employee : Page
     {
-        public Employee()
+        Data.Models.Employee employee;
+
+        public Employee(Data.Models.Employee _employee )
         {
             InitializeComponent();
+
+            employee = _employee;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -32,26 +37,32 @@ namespace courseproject.Pages.AddTabs
 
             try
             {
-                if (FirstNameTextBox.Text != null && LastNameTextBox.Text != null && MiddleNameTextBox.Text != null
-                    && PostComboBox.SelectedItem != null)
+                if (FirstNameTextBox.Text == null && MiddleNameTextBox.Text == null && LastNameTextBox.Text == null
+                    && PostComboBox.SelectedItem == null)
                 {
-                    db.Employee.Add(new Data.Models.Employee
-                    {
-                        FirstName = FirstNameTextBox.Text,
-                        SecondName = LastNameTextBox.Text,
-                        MiddleName = MiddleNameTextBox.Text,
-                        Post = PostComboBox.SelectedValue.ToString()
-                    });
+                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                if (employee != null)
+                {
+                    employee = GetUserInput(employee);
+
+                    db.Employee.Update(employee);
+
+                    db.SaveChanges();
+
+                    ClearInput();
+
+                    MessageBox.Show("Данные обновлены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    db.Employee.Add(GetUserInput(new Data.Models.Employee()));
 
                     db.SaveChanges();
 
                     ClearInput();
 
                     MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception)
@@ -68,9 +79,29 @@ namespace courseproject.Pages.AddTabs
             PostComboBox.SelectedValue = null;
         }
 
+        private Data.Models.Employee GetUserInput(Data.Models.Employee p)
+        {
+            p.FirstName = FirstNameTextBox.Text;
+            p.SecondName = LastNameTextBox.Text;
+            p.MiddleName = MiddleNameTextBox.Text;
+            p.Post = PostComboBox.SelectedValue.ToString();
+
+            return p;
+        }
+
+        private void FillFields(Data.Models.Employee e)
+        {
+            FirstNameTextBox.Text = e.FirstName;
+            LastNameTextBox.Text = e.SecondName;
+            MiddleNameTextBox.Text = e.MiddleName;
+            PostComboBox.SelectedItem = e.Post;
+        }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             PostComboBox.ItemsSource = new List<string>() { "Doctor", "Admin" };
+
+            if (employee != null) FillFields(employee);
         }
     }
 }
