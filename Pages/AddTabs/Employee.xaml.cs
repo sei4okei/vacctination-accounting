@@ -102,6 +102,29 @@ namespace courseproject.Pages.AddTabs
             PostComboBox.ItemsSource = new List<string>() { "Doctor", "Admin" };
 
             if (employee != null) FillFields(employee);
+            else DeleteButton.Visibility = Visibility.Hidden;
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (employee == null) return;
+            using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+            {
+                try
+                {
+                    db.Employee.Remove(employee);
+
+                    db.SaveChanges();
+
+                    ClearInput();
+
+                    MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

@@ -17,6 +17,9 @@
         <TextBox x:Name="ContraindicatorsTextBox" Style="{StaticResource GeneralTextBox}" Height="90" Width="280" HorizontalAlignment="Left"/>
         <Label Content="Срок годности:" Style="{StaticResource GeneralLabel}"/>
         <DatePicker x:Name="ExpirationDatePicker" Style="{StaticResource GeneralDatePicker}" Height="45" Width="280" HorizontalAlignment="Left"/>
-        <Button Content="Сохранить" Height="50" Width="175" HorizontalAlignment="Left" Style="{StaticResource LoginButton}" Click="SaveButton_Click" Margin="0, 65"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Сохранить" Height="50" Width="175" HorizontalAlignment="Left" Style="{StaticResource LoginButton}" Click="SaveButton_Click" Margin="0, 65, 50, 65"/>
+            <Button x:Name="DeleteButton" Content="Удалить" Height="50" Width="175" HorizontalAlignment="Left" Style="{StaticResource LoginButton}" Click="DeleteButton_Click" Margin="50, 65, 50, 65"/>
+        </StackPanel>
     </StackPanel>
 </Page>

@@ -118,6 +118,29 @@ namespace courseproject.Pages.AddTabs
             PatientRegionComboBox.ItemsSource = list;
 
             if (patient != null) FillFields(patient);
+            else DeleteButton.Visibility = Visibility.Hidden;
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (patient == null) return;
+            using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+            {
+                try
+                {
+                    db.Patient.Remove(patient);
+
+                    db.SaveChanges();
+
+                    ClearInput();
+
+                    MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

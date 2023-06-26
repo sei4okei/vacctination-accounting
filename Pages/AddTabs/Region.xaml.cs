@@ -88,6 +88,7 @@ namespace courseproject.Pages.AddTabs
             }
 
             if (region != null) FillFields(region);
+            else DeleteButton.Visibility = Visibility.Hidden;
         }
 
         private Data.Models.Region GetUserInput(Data.Models.Region r)
@@ -117,6 +118,28 @@ namespace courseproject.Pages.AddTabs
             using (VacctinationAccountingDb db = new VacctinationAccountingDb())
             {
                 RegionTextBox.Text = (db.Region.Max(x => x.Id) + 1).ToString();
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (region == null) return;
+            using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+            {
+                try
+                {
+                    db.Region.Remove(region);
+
+                    db.SaveChanges();
+
+                    ClearInput();
+
+                    MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }

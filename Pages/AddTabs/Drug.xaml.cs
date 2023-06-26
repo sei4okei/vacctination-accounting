@@ -82,6 +82,7 @@ namespace courseproject.Pages.AddTabs
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             if (drug != null) FillFields(drug);
+            else DeleteButton.Visibility = Visibility.Hidden;
         }
 
         private Data.Models.Drug GetUserInput(Data.Models.Drug d)
@@ -100,6 +101,28 @@ namespace courseproject.Pages.AddTabs
             DosageTextBox.Text = d.Dosage.ToString();
             ContraindicatorsTextBox.Text = d.Contraindicators;
             ExpirationDatePicker.SelectedDate = d.ExpirationDate;
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (drug == null) return;
+            using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+            {
+                try
+                {
+                    db.Drug.Remove(drug);
+
+                    db.SaveChanges();
+
+                    ClearInput();
+
+                    MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

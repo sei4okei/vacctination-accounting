@@ -120,6 +120,29 @@ namespace courseproject.Pages.AddTabs
             }
 
             if (reception != null) FillFields(reception);
+            else DeleteButton.Visibility = Visibility.Hidden;
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (reception == null) return;
+            using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+            {
+                try
+                {
+                    db.PatientReception.Remove(reception);
+
+                    db.SaveChanges();
+
+                    ClearInput();
+
+                    MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Данные ввдены неверно, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }
