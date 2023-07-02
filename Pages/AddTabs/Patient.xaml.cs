@@ -51,8 +51,6 @@ namespace courseproject.Pages.AddTabs
 
                     db.SaveChanges();
 
-                    ClearInput();
-
                     MessageBox.Show("Данные обновлены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
@@ -60,8 +58,6 @@ namespace courseproject.Pages.AddTabs
                     db.Patient.Add(GetUserInput(new Data.Models.Patient()));
 
                     db.SaveChanges();
-
-                    ClearInput();
 
                     MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

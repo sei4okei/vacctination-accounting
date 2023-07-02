@@ -50,17 +50,15 @@ namespace courseproject.Pages.AddTabs
 
                     db.SaveChanges();
 
-                    ClearInput();
-
                     MessageBox.Show("Данные обновлены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    db.Drug.Add(GetUserInput(new Data.Models.Drug()));
+                    drug = GetUserInput(new Data.Models.Drug());
+
+                    db.Drug.Add(drug);
 
                     db.SaveChanges();
-
-                    ClearInput();
 
                     MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

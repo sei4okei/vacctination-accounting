@@ -23,13 +23,23 @@ namespace courseproject.Pages
     /// </summary>
     public partial class Add : Page
     {
-        private Data.Models.View reception;
+        private Data.Models.PatientReception reception;
+        private Data.Models.Patient patient;
 
         public Add(Data.Models.View _reception)
         {
             InitializeComponent();
 
-            reception = _reception;
+            if (_reception != null)
+            {
+                using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+                {
+                    reception = db.PatientReception.Single(r => r.Id == _reception.Id);
+
+                    patient = db.Patient.Single(p => p.Id == reception.PatientId);
+                }
+            }
+
         }
 
 
@@ -45,7 +55,7 @@ namespace courseproject.Pages
                 {
                     using (VacctinationAccountingDb db = new VacctinationAccountingDb())
                     {
-                        PatientFrame.Navigate(new AddTabs.Patient(db.Patient.Where(patient => (patient.LastName + " " + patient.FirstName + " " + patient.MiddleName) == reception.AllName).ToList()[0]));
+                        PatientFrame.Navigate(new AddTabs.Patient(db.Patient.Single(p => p.Id == reception.PatientId)));
                     }
                 }
                 catch (Exception)
@@ -67,7 +77,7 @@ namespace courseproject.Pages
                 {
                     using (VacctinationAccountingDb db = new VacctinationAccountingDb())
                     {
-                        EmployeeFrame.Navigate(new AddTabs.Employee(db.Employee.Where(employee => (employee.SecondName + " " + employee.FirstName.Substring(0, 1) + "." + employee.MiddleName.Substring(0, 1) + ".") == reception.DoctorAllName).ToList()[0]));
+                        EmployeeFrame.Navigate(new AddTabs.Employee(db.Employee.Single(employee => employee.Id == reception.EmployeeId)));
                     }
                 }
                 catch (Exception)
@@ -95,7 +105,7 @@ namespace courseproject.Pages
                 {
                     using (VacctinationAccountingDb db = new VacctinationAccountingDb())
                     {
-                        VaccineFrame.Navigate(new AddTabs.Drug(db.Drug.Where(drug => drug.Name == reception.DrugName).ToList()[0]));
+                        VaccineFrame.Navigate(new AddTabs.Drug(db.Drug.Single(drug => drug.Id == reception.DrugId)));
                     }
                 }
                 catch (Exception)
@@ -115,7 +125,7 @@ namespace courseproject.Pages
             {
                 using (VacctinationAccountingDb db = new VacctinationAccountingDb())
                 {
-                    RegionFrame.Navigate(new AddTabs.Region(db.Region.Where(region => region.Id == reception.Region).ToList()[0]));
+                    RegionFrame.Navigate(new AddTabs.Region(db.Region.Single(region => region.Id == patient.RegionId)));
                 }
             }
         }
@@ -130,7 +140,14 @@ namespace courseproject.Pages
             {
                 using (VacctinationAccountingDb db = new VacctinationAccountingDb())
                 {
-                    ReceiptionFrame.Navigate(new AddTabs.PatientReception(db.PatientReception.Where(pr => pr.Id == reception.Id).ToList()[0]));
+                    try
+                    {
+                        ReceiptionFrame.Navigate(new AddTabs.PatientReception(db.PatientReception.Single(r => r.Id == reception.Id)));
+                    }
+                    catch (Exception)
+                    {
+                        ReceiptionFrame.Navigate(new AddTabs.PatientReception(null));
+                    };
                 }
             }
         }

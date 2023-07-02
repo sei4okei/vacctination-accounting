@@ -21,6 +21,8 @@ namespace courseproject.Pages.AddTabs
     /// </summary>
     public partial class Account : Page
     {
+        private Data.Models.Account account;
+
         public Account()
         {
             InitializeComponent();
@@ -35,17 +37,17 @@ namespace courseproject.Pages.AddTabs
                 if (LoginTextBox.Text != null && PasswordBox.Password != null && ConfirmPasswordBox.Password != null
                     && RightsComboBox.SelectedItem != null && PasswordBox.Password == ConfirmPasswordBox.Password)
                 {
-                    db.Account.Add(new Data.Models.Account
+                    account = new Data.Models.Account
                     {
                         Login = LoginTextBox.Text,
                         Password = ConfirmPasswordBox.Password,
                         Rights = RightsComboBox.SelectedItem.ToString(),
                         EmployeeId = db.Employee.First(x => x.SecondName + " " + x.FirstName + " " + x.MiddleName == EmployeeComboBox.SelectedItem.ToString()).Id,
-                    });
+                    };
+
+                    db.Account.Add(account);
 
                     db.SaveChanges();
-
-                    ClearInput();
 
                     MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

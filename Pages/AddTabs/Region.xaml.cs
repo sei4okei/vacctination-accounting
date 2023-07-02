@@ -50,8 +50,6 @@ namespace courseproject.Pages.AddTabs
 
                     db.SaveChanges();
 
-                    ClearInput();
-
                     MessageBox.Show("Данные обновлены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
@@ -59,8 +57,6 @@ namespace courseproject.Pages.AddTabs
                     db.Region.Add(GetUserInput(new Data.Models.Region()));
 
                     db.SaveChanges();
-
-                    ClearInput();
 
                     MessageBox.Show("Данные сохранены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -117,7 +113,14 @@ namespace courseproject.Pages.AddTabs
         {
             using (VacctinationAccountingDb db = new VacctinationAccountingDb())
             {
-                RegionTextBox.Text = (db.Region.Max(x => x.Id) + 1).ToString();
+                try
+                {
+                    RegionTextBox.Text = (db.Region.Max(x => x.Id) + 1).ToString();
+                }
+                catch (Exception)
+                {
+                    RegionTextBox.Text = "1";
+                }
             }
         }
 
