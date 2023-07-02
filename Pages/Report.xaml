@@ -1,0 +1,20 @@
+﻿<Page x:Class="courseproject.Pages.Report"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:courseproject.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="995" d:DesignWidth="1620"
+      Title="Report">
+
+    <StackPanel Margin="20">
+        <TextBlock FontSize="22">Выберите временой промежуток отчета:</TextBlock>
+        <Label Style="{StaticResource GeneralLabel}">Дата начала:</Label>
+        <DatePicker x:Name="FirstDatePicker" Height="45" Width="280" Style="{StaticResource GeneralDatePicker}" HorizontalAlignment="Left"/>
+        <Label Style="{StaticResource GeneralLabel}">Дата окночания:</Label>
+        <DatePicker x:Name="SecondDatePicker" Height="45" Width="280" Style="{StaticResource GeneralDatePicker}" HorizontalAlignment="Left"/>
+
+        <Button x:Name="SubmitButton" Click="SubmitButton_Click" Style="{StaticResource LoginButton}" Height="50" Width="175" Content="Создать" HorizontalAlignment="Left" Margin="0, 65, 50, 65"/>
+    </StackPanel>
+</Page>

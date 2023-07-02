@@ -18,7 +18,7 @@ namespace courseproject.Data.Models
         public int Region { get; set; }
         public string DoctorAllName { get; set; }
 
-        public List<View> GetList()
+        public static List<View> GetList()
         {
             VacctinationAccountingDb db = new VacctinationAccountingDb();
 

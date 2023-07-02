@@ -265,3 +265,9 @@ D:\Development\Desktop\vaccination-accounting\vacctination-accounting\obj\Debug\
 D:\Development\Desktop\vaccination-accounting\vacctination-accounting\obj\Debug\Pages\AddTabs\Patient.baml
 D:\Development\Desktop\vaccination-accounting\vacctination-accounting\obj\Debug\Pages\AddTabs\PatientReception.baml
 D:\Development\Desktop\vaccination-accounting\vacctination-accounting\obj\Debug\Pages\AddTabs\Region.baml
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\Report.g.cs
+G:\Desktop\vacctination-accounting\bin\Debug\EPPlus.dll
+G:\Desktop\vacctination-accounting\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+G:\Desktop\vacctination-accounting\bin\Debug\EPPlus.xml
+G:\Desktop\vacctination-accounting\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+G:\Desktop\vacctination-accounting\obj\Debug\Pages\Report.baml

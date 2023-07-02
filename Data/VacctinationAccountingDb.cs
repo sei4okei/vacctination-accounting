@@ -16,6 +16,7 @@ namespace courseproject.Data
         public DbSet<Patient> Patient { get; set; }
         public DbSet<PatientReception> PatientReception { get; set; }
         public DbSet<Region> Region { get; set; }
+        public DbSet<Report> Report { get; set; }
 
         public VacctinationAccountingDb()
         {

@@ -34,7 +34,6 @@ namespace courseproject.Pages
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationManager.MainFrame.Navigate(new Add(null));
-
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -44,7 +43,7 @@ namespace courseproject.Pages
 
         private void DocumentButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationManager.MainFrame.Navigate(new Report());
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

@@ -33,9 +33,8 @@ namespace courseproject.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Data.Models.View view = new Data.Models.View();
 
-            ViewDataGrid.ItemsSource = view.GetList();
+            ViewDataGrid.ItemsSource = Data.Models.View.GetList();
 
             SetupDataGrid();
         }
