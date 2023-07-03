@@ -38,7 +38,7 @@ namespace courseproject.Data.Models
                     str = item.VacctinationDate.Split('.');
                     vaccinedate = new DateTime(int.Parse(str[2]), int.Parse(str[1]), int.Parse(str[0]));
 
-                    if (vaccinedate > report.StartDate && vaccinedate < report.EndDate)
+                    if (vaccinedate >= report.StartDate && vaccinedate <= report.EndDate)
                     {
                         report.ViewList.Add(item);
                     }

@@ -30,32 +30,61 @@ namespace courseproject.Pages
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            using (VacctinationAccountingDb db = new VacctinationAccountingDb())
             {
-                using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+                foreach (var item in db.Report.ToList())
                 {
-                    db.Report.Add(new Data.Models.Report()
-                    {
-                        StartDate = FirstDatePicker.SelectedDate.Value.Date,
-                        EndDate = SecondDatePicker.SelectedDate.Value.Date,
-                        CreatedDate = DateTime.Now
-                    });
-
-                    db.SaveChanges();
+                    db.Report.Remove(item);
                 }
 
-                var reportData = ExcelReport.GetReport();
-                var reportExcel = new ReportCreator().Create(reportData);
+                db.Report.Add(new Data.Models.Report()
+                {
+                    StartDate = FirstDatePicker.SelectedDate.Value.Date,
+                    EndDate = SecondDatePicker.SelectedDate.Value.Date,
+                    CreatedDate = DateTime.Now
+                });
 
-                File.WriteAllBytes(@"C:\\Users\\Public\\Documents\\Отчет.xlsx", reportExcel);
-
-                MessageBox.Show("Отчет создан!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                db.SaveChanges();
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Произошла ошибка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            }
+            var reportData = ExcelReport.GetReport();
+            var reportExcel = new ReportCreator().Create(reportData);
+
+            File.WriteAllBytes(@"C:\\Users\\Public\\Documents\\Отчет.xlsx", reportExcel);
+
+            MessageBox.Show("Отчет создан!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            //try
+            //{
+            //    using (VacctinationAccountingDb db = new VacctinationAccountingDb())
+            //    {
+            //        foreach (var item in db.Report.ToList())
+            //        {
+            //            db.Report.Remove(item);
+            //        }
+
+            //        db.Report.Add(new Data.Models.Report()
+            //        {
+            //            StartDate = FirstDatePicker.SelectedDate.Value.Date,
+            //            EndDate = SecondDatePicker.SelectedDate.Value.Date,
+            //            CreatedDate = DateTime.Now
+            //        });
+
+            //        db.SaveChanges();
+            //    }
+
+            //    var reportData = ExcelReport.GetReport();
+            //    var reportExcel = new ReportCreator().Create(reportData);
+
+            //    File.WriteAllBytes(@"C:\\Users\\Public\\Documents\\Отчет.xlsx", reportExcel);
+
+            //    MessageBox.Show("Отчет создан!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Произошла ошибка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            //}
         }
     }
 }
